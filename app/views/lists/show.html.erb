@@ -1,4 +1,9 @@
 <h1> <%=@list.name%> </h1>
+<% @list.bookmarks.each do |bookmark| %>
+  <%= bookmark.movie.title %>
+  <%= bookmark.comment %>
+  <%# <%= link_to "delete this movie", list_bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
 <%= link_to "Add a Movie", new_list_bookmark_path(@list) %>
 <%= link_to "Back", lists_path %>
 <%= link_to 'detete this list', list_path(@list), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this list?' } %>
